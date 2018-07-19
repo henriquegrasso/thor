@@ -1,0 +1,214 @@
+body{
+	background:#E7EFD1;
+}
+#wrapper{
+	
+	background:#AADE64;
+	width:980px;
+	margin: auto;
+	position: relative;
+	
+}
+#header{
+	background:#FFFFFF;
+	height: 176px;
+	background: url('barra_if.jpg');
+}
+
+#content{
+	background:#FFFFFF;
+	height: 650px;
+	width: 755px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	float: right;
+	border-radius: 20px; /* borda arredondada*/
+}
+#sidebar{
+	background:#FFFFFF;	
+	height: 650px;
+	width:210px;
+	margin-right: 5px;	
+	margin-top: 5px;
+	float: left;
+	border-radius: 20px; /* borda arredondada*/	 
+}
+#footer{
+	background:#DAE4C0;
+	height: 80px;
+	clear: both;
+}
+.format_footer{
+	 text-align: center;
+	 font-size: 12px;
+	 padding-top: 25px;
+}
+h2, h3{
+	color: #5C7702; 
+	font-family: Arial,Helvetica,sans-serif;
+}
+#sidebar ul{
+  text-align: left;
+  font-size: 18px;
+  color: #08B408;
+  list-style: none outside none; /* retirar bullets*/
+  padding-top: 65px;
+}
+.space{
+	margin-bottom: 20px;
+}
+/* mudar a cor do link do sidebar*/
+a:link{
+	color:#08B408;
+	text-decoration: none;	
+}
+a:visited{
+	color:#08B408;
+	text-decoration: none;
+}
+a:hover {
+    background-color: #B3E2A4;
+}
+
+.texto{
+	color: #5C7702; 
+	font-family: Arial,Helvetica,sans-serif;
+	text-align: justify;
+}
+.alinha{
+	color: #5C7702; 
+	font-family: Arial,Helvetica,sans-serif;
+	text-align: right;
+}
+#sidebar img{
+	margin-top: 20px;
+	width: 200px;
+	height:200;
+}
+
+label{			 
+		width:98%; 
+		display: block; 		
+		border-top:1px solid #FFFFFF; 
+		border-bottom:1px solid #FFFFFF; 
+		padding:10px 0px 10px 5px; 
+}
+.input_format{
+	width: 80%;
+	padding-left: 5px;
+	float: right;
+}
+#form{
+	margin:0 auto; 
+	width:98%; 
+	background:#B3E2A4;	
+	border-style:ridge;
+	border-color: #238E23;
+	border-width: 5px;
+	
+}
+label.error{
+	color: red;
+	font-weight: bold;
+}
+.mensagem{
+	color: #007C00;
+}
+.blue
+{
+	color:blue;
+}
+
+/* Abertura características do Menu */
+
+#menu > ul,
+#menu > ul li,
+#menu > ul ul {
+	list-style: none; /* Sem círculos na lista */
+	margin: 0; /* Nav sem margem */
+	padding: 0; /* Nav sem espaçamento */
+	}
+
+#menu > ul li{
+	padding-right: 4%
+}
+
+#menu > ul li {
+	float: left; /* Flutuar para esquerda */
+	}
+
+#menu > ul li.hover,
+#menu > ul li:hover {
+	position: relative; /* Aparecer links */
+	}
+
+#menu > ul ul {
+	visibility: hidden; /* Esconder para não ficar um na frente do outro */
+	position: absolute; /* Ocupar seu lugar */
+	}
+
+#menu > ul ul li {
+	float: none; /* Sem float nos itens */
+	}
+
+#menu > ul ul ul {
+	left: 100%; /* Item aparecer do lado */
+	}
+
+#menu > ul li:hover > ul {
+	visibility: visible; /* Quando passar os cursor a lista vai aparecer */
+	}
+
+#menu > ul {
+	border-top: 4px solid #ffff00; /* Linha amarela em cima */
+	border-bottom: 4px solid #ffff00;
+	font-family:Century Gothic; /* Fonte do menu */
+	font-size: 100%; /* Tamanho da fonte do menu */
+	background: #009b3a; /* Cor de fundo verde */
+	}
+
+#menu > ul:after {
+	content: '';
+	display: table;
+	clear: both;
+	}
+
+#menu > ul li a {
+	display: inline-block; /* Aparecer como blocos inline */
+	padding-bottom: 10px;
+	padding-top: 10px; /* Espaçamento dentro do menu */
+	}
+
+#menu > ul > li > a:link,
+#menu > ul > li > a:active,
+#menu > ul > li > a:visited {
+	color: #ffffff; /* Cor do texto no menu com fundo verde */
+	}
+
+#menu > ul ul ul {
+	top: 0; /* Sublista aparece exatamente do lado */
+	}
+
+#menu > ul li li {
+	width: 230px;
+	background-color: #ffffff; /* Cor de fundo branca */
+	border-bottom: 1px solid #ebebeb; /* Borda cinza entre elementos */
+	font-size: 90%; /* Tamanho da letra */
+	}
+
+#menu > ul a:link{
+	color: #009b3a; /* Cor normal */
+	text-decoration: none; /* Letra normal */
+	}
+
+#menu > ul a:visited {
+	color: #9400D3; /* Link visitado roxo */
+	text-decoration: none; /* Letra normal */
+	}
+
+#menu > ul ul {
+	box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.15); /* Sombra na lista */
+	}
+/* Fechamento características do Menu */
