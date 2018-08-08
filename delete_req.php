@@ -10,12 +10,12 @@
 <?php
 	$seq_req = $_GET['seq'];
 	if($con){
-		$sql = "select * from requisito WHERE id =".$_GET['seq'];
+		$sql = "select * from requisitos WHERE idrequisitos =".$_GET['seq'];
 		$rs = mysqli_query($con, $sql);
 		if($rs){
 			if($valor = mysqli_fetch_array($rs)){	
-				$sql = "DELETE FROM requisito
-		          WHERE id = $seq_req;";		
+				$sql = "DELETE FROM requisitos
+		          WHERE idrequisitos = $seq_req;";		
 				$rs = mysqli_query($con, $sql);
 				if($rs){
 					$sql = "UPDATE log_requisito set id_user = ".$_SESSION['id']."

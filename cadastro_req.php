@@ -5,15 +5,39 @@
 		header('Location: login.php?msg=0');
 	}
 
-	//if(!isset($_POST['id'])){
+	$conteudo	= '';
+	if(isset($_POST['select_Ator'])){
 		$ator = $_POST['select_Ator'];
 		$acao = $_POST['text_Acao'];
 		$secao = $_POST['select_Secao'];
 		$motivo = $_POST['text_Motivo'];
-	
-		$string = 'Eu como um usuário ' . $ator . ' , eu quero ' . $acao . ' na seção de ' . $secao . ' a fim de ' . $motivo;
-	//}
+		$conteudo = 'Eu como um usuário ' . $ator . ' , eu quero ' . $acao . ' na seção de ' . $secao . ' a fim de ' . $motivo;
+		$_SESSION['conteudo'] = $conteudo;	
 
+	}
+
+	if(isset($_POST['text_Relator'])) {
+		$relator = $_POST['text_Relator'];
+		$responsavel = $_POST['text_Responsavel'];
+		$sprint = $_POST['text_Sprint'];
+		$tipo = $_POST['select_Tipo'];
+		$complexidade = $_POST['select_Complexidade'];
+		$status = $_POST['select_Status'];
+		$prioridade = $_POST['select_Prioridade'];
+		$conteudo = $_SESSION['conteudo'];
+	    
+
+	    //var_dump($_POST);
+	    $sql = "insert into requisitos(relator, responsavel, sprint, complexidade, status, prioridade, tipo, conteudo) values('$relator', '$responsavel', '$sprint', '$complexidade', '$status', '$prioridade', '$tipo', '$conteudo')";
+	    $rs = mysqli_query($con, $sql);
+		if($rs){
+			echo "<center><h3>Requisito cadastrada com sucesso!!</h3></center>";
+		}
+		else{
+			echo "<center><h3>Erro de inclusão: </h3></center> ".mysqli_error($con);
+		}
+		unset($_SESSION['conteudo']);
+	}
 
 ?>	
 			<article id = "content_cad">
@@ -88,7 +112,7 @@
 					<hr>
 					<hr>
 					
-					<div id="requisitoGerado"><?php echo  $string;?></div>
+					<div id="requisitoGerado"><?php echo  $conteudo;?></div>
 					<button id="bt_Copiar" name="bt_Copiar" onClick="copiarTexto()">Copiar Texto</button>
 					
 					<script type="text/javascript">
@@ -146,7 +170,7 @@
 						</select>
 
 						<label name="lb_Prioridade">Prioridade</label>
-						<select name="select_Status" id="select_Status">
+						<select name="select_Prioridade" id="select_Prioridade">
 							<option>Selecione...</option>
 							<option>Alta</option>
 							<option>Média</option>

@@ -12,111 +12,68 @@
 					<div id = "form">
 					<?php
 						if($con){
-							$sql = "select * from requisito WHERE id=".$_GET['seq'];
+							$sql = "select * from requisitos WHERE idrequisitos=".$_GET['seq'];
 							$rs = mysqli_query($con, $sql);
 							if($rs){
 								if($req = mysqli_fetch_array($rs)){?>
 						
 									<form id = "alt_req" action = "update_req.php" method = "POST">
 											ID: <input type="text" name="seq_req" size=5 
-												value="<?php echo $req['id'];?>" class = " id" readonly> <br>
+												value="<?php echo $req['idrequisitos'];?>" class = " id" readonly> <br>
 											
-											Título do Requisito: <input type = "text" name = "nome_req" class = "input_n"
-												value="<?php echo $req['titulo_req'];?>"> <br>	
-												
-											<label>Requisito:</label><textarea name = "tx_req" cols = 80 rows = 3 ><?php echo $req['texto_req'];?></textarea><br>
-										
-											<label>Descrição:</label><textarea name = "tx_desc" cols = 79 rows = 3 ><?php echo $req['descricao'];?></textarea>					
+											Requisito: <input type = "text" name = "nome_req" class = "input_n"
+												value="<?php echo $req['conteudo'];?>"> <br>						
 									<br>
 									<hr/>
 									<br>
 										<h2> Detalhes Técnicos </h2>
 										<br>
-										<div id = "resp">									
-											Responsável: 
-												<select name = "cmbEquipe">
-													<?php
-													   if($con){
-															$sql = "select * from usuario where tipo = 'funcionario'";
-															$rs = mysqli_query($con, $sql);
-															while ($cmb = mysqli_fetch_array($rs)){
-																if($req['usuario_id_funcionario'] == $cmb['id']){
-																	echo "<option value= ".$cmb['id']." selected >" .$cmb['nome']." </option>";
-																}else{																	
-																	echo "<option value= ".$cmb['id'].">" .$cmb['nome']." </option>";
-																	
-																}
-															}
-														}
-													?>		
-																															
-												</select> <br>	<br>										
-											Cliente responsável: 
-												<select name = "cmbCliente">
-													<?php
-													   if($con){
-															$sql = "select * from usuario where tipo = 'cliente'";
-															$rs = mysqli_query($con, $sql);
-															while ($cmb = mysqli_fetch_array($rs)){
-																if($req['usuario_id_cliente'] == $cmb['id']){
-																	echo "<option value= ".$cmb['id']." selected >" .$cmb['nome']." </option>";
-																}else{																	
-																	echo "<option value= ".$cmb['id'].">" .$cmb['nome']." </option>";
-																	
-																}
-															}
-														}
-													?>	
-												</select>
-										</div><!--/resp-->
-										<div id = "cat">			
-												Origem:
-												<select name = "cmbOrigem">
-													<?php
-													   if($con){
-															$sql = "select * from origem";
-															$rs = mysqli_query($con, $sql);
-															while ($cmb = mysqli_fetch_array($rs)){
-																if($req['origem_id'] == $cmb['id']){
-																	echo "<option value= ".$cmb['id']." selected >" .$cmb['nome']." </option>";
-																}else{																	
-																	echo "<option value= ".$cmb['id'].">" .$cmb['nome']." </option>";
-																	
-																}
-															}
-														}
-													?>		
-												</select>	<br><br>											
-											Categoria do requisito: 
-												<select name = "cmbCategoria">
-													<option <?php echo ($req['categoria']== "Interface"?"selected":"");?>> Interface</option>
-													<option <?php echo ($req['categoria']== "Desenvolvimento"?"selected":"");?>>Desenvolvimento</option>
-													<option <?php echo ($req['categoria']== "Teste"?"selected":"");?>>Teste</option>
-												</select>	
-										</div><!--/cat-->
-																
-											<div id = "tp_req">
-												Tipo do Requisito:<br>				
-												<input type="radio" name="tipo" value="funcional" <?php echo ($req['tipo']== "funcional"?"checked":"");?>>Funcional<br>
-												<input type="radio" name="tipo" value="nfuncional" <?php echo ($req['tipo']== "nfuncional"? "checked":"");?> >Não Funcional<br>	
-												<input type="radio" name="tipo" value="dominio" <?php echo ($req['tipo']== "dominio"? "checked":"");?>>Domínio			
-											</div><!--/tp_req-->									
-											<div id = "status">
-												Estado:<br>					
-												<input type="radio" name ="status" value="incompleto" <?php echo ($req['estado']== "incompleto"?"checked":"");?>> Incompleto <br>
-												<input type="radio" name ="status" value="completo" <?php echo ($req['estado']== "completo"?"checked":"");?>> Completo<br>
-												<input type="radio" name ="status" value="revisao" <?php echo ($req['estado']== "revisao"?"checked":"");?>> Revisão					
-											</div><!--/status-->
-											<div id = "prior">
-												Prioridade:<br>					
-												<input type="radio" name ="pri" value="essencial" <?php echo ($req['prioridade']== "essencial"?"checked":"");?>> Essencial<br>
-												<input type="radio"  name ="pri" value="importante" <?php echo ($req['prioridade']== "importante"?"checked":"");?>> Importante<br>
-												<input type="radio"  name ="pri" value="desejavel" <?php echo ($req['prioridade']== "desejavel"?"checked":"");?>> Desejável<br> 						
-											</div><!--/prior-->									
-										<div id = "btn">								
-											<center><input class="btn_monitora" type="submit" value="Finalizar">
-											<a href="consulta_req.php"><input class="btn_monitora" type="button" value="Voltar"></a>								
-										</div><!--/btn-->
+
+										<label name="lb_Relator">Relator</label>
+										<input type="text" name="text_Relator" value="<?php echo $req['relator'];?>">
+
+										<label name="lb_Responsavel">Responsável</label>
+										<input type="text" name="text_Responsavel" value="<?php echo $req['responsavel'];?>">
+
+										<label name="lb_Sprint">Sprint</label>
+										<input type="text" name="text_Sprint" value="<?php echo $req['sprint'];?>">
+
+										<label name="lb_Tipo">Tipo</label>
+										<select name="select_Tipo" id="select_Tipo" value="<?php echo $req['tipo'];?>">
+											<option>Selecione...</option>
+											<option>Funcional</option>
+											<option>Não-Funcional</option>
+											<option>Interface</option>
+										</select>
+
+										<br>
+										
+										<label name="lb_Complexidade">Complexidade</label>
+										<select name="select_Complexidade" id="select_Complexidade" value="<?php echo $req['complexidade'];?>">
+											<option>Selecione...</option>
+											<option>Baixa</option>
+											<option>Média</option>
+											<option>Alta</option>
+										</select>
+
+										<label name="lb_Status">Status</label>
+										<select name="select_Status" id="select_Status" value="<?php echo $req['status'];?>">
+											<option>Selecione...</option>
+											<option>Em Aberto</option>
+											<option>Em Progresso</option>
+											<option>Sob Aprovação</option>
+											<option>Finalizado</option>
+											<option>Cancelado</option>
+										</select>
+
+										<label name="lb_Prioridade">Prioridade</label>
+										<select name="select_Prioridade" id="select_Prioridade" value="<?php echo $req['prioridade'];?>">
+											<option>Selecione...</option>
+											<option>Alta</option>
+											<option>Média</option>
+											<option>Baixa</option>
+										</select>
+
 					 	</form>									
 					</div><!--/form-->				
 			</article><!--/content-->
