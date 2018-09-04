@@ -34,8 +34,8 @@
 	}
 ?>
 	<div id = "pg_anteriores">
-		<a href= "cadastro_req.php"><img src='figura/plus.png' alt='Cadastrar novo requisito ' class = "img_btn"></a>
-		<a href= "consulta_req.php"><img src='figura/fin.png' alt='Retornar a Consulta' class = "img_btn"></a>
+		<a href= "cadastrar_requisito.php"><img src='figura/plus.png' alt='Cadastrar novo requisito ' class = "img_btn"></a>
+		<a href= "consultar_requisito.php"><img src='figura/fin.png' alt='Retornar a Consulta' class = "img_btn"></a>
 	</div><!--/pg_anteriores-->
 </div><!--/content-->
 

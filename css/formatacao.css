@@ -344,9 +344,13 @@ table, td, th, tr{
 	margin-top: 25px;	
 	text-align: left;	
 }
-table{
-	width: 950px;	
+
+
+.table_ator, .table_secao, table, td, th, tr{
+	width: 30%;
+	display: inline-grid;
 }
+
 .color_table{
 	background-color: #AEEEEE;
 }

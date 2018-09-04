@@ -8,7 +8,7 @@
 <div id = "content">
   <?php		
 		if($con){
-			$sql = "select * from requisito where usuario_id_funcionario=".$_POST['cmbEquipe'];
+			$sql = "select * from requisitos where usuario_id_funcionario=".$_POST['cmbEquipe'];
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
 				<h2> Requisitos do Funcionário </h2><center>
@@ -21,9 +21,9 @@
 				<?php
 					while ($valor = mysqli_fetch_array($rs)){ // nome entre[] igual ao do BD						
 							echo "<tr align = 'center'>
-								<td> ".$valor["id"]."</td>								 
-								<td> ".$valor["texto_req"]."</td>								
-								<td> ".$valor["estado"]."</td>							
+								<td> ".$valor["idrequisitos"]."</td>								 
+								<td> ".$valor["conteudo"]."</td>								
+								<td> ".$valor["status"]."</td>							
 							</tr>";		
 															
 					}
@@ -37,7 +37,7 @@
 		else{
 			echo "Erro de conexão: ".mysqli_error($con);
 		}
- ?>
+ ?>S
 </div>
 <?php
 	include "template/rodape.php";

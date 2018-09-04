@@ -8,20 +8,22 @@
 <div id = "content">
   <?php		
 		if($con){
-			$sql = "select * from requisitos WHERE status = 'Em Aberto'";
+			$sql = "select * from requisitos WHERE tipo = 'Funcional'";
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
-				<h2> Requisitos Em Aberto </h2><center>
+				<h2> Requisitos da Categoria "Interface" </h2><center>
 				<table  align = "center">
 					<tr align = "left">
 						<th>ID</th>
-						<th>Requisito</th>																	
+						<th>Requisito</th>
+						<th>Status</th>																	
 					</tr>
 				<?php
 					while ($valor = mysqli_fetch_array($rs)){ // nome entre[] igual ao do BD
 						echo "<tr align = 'center'>
 								<td> ".$valor["idrequisitos"]."</td>  
-								<td> ".$valor["conteudo"]."</td>							
+								<td> ".$valor["conteudo"]."</td>
+								<td> ".$valor["status"]."</td>								
 							</tr>";					
 					}
 					mysqli_free_result($rs);

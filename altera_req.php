@@ -21,8 +21,8 @@
 											ID: <input type="text" name="seq_req" size=5 
 												value="<?php echo $req['idrequisitos'];?>" class = " id" readonly> <br>
 											
-											Requisito: <input type = "text" name = "nome_req" class = "input_n"
-												value="<?php echo $req['conteudo'];?>"> <br>						
+											Requisito: <input type = "textarea" name = "text_Conteudo" class = "input_n"
+												value="<?php echo $req['conteudo'];?>"> <br>	
 									<br>
 									<hr/>
 									<br>
@@ -41,38 +41,44 @@
 										<label name="lb_Tipo">Tipo</label>
 										<select name="select_Tipo" id="select_Tipo" value="<?php echo $req['tipo'];?>">
 											<option>Selecione...</option>
-											<option>Funcional</option>
-											<option>Não-Funcional</option>
-											<option>Interface</option>
+											<option <?php if($req['tipo'] == 'Funcional') { echo ' selected="selected"';} ?> >Funcional</option>
+											<option <?php if($req['tipo'] == 'Não-Funcional') { echo ' selected="selected"';} ?> >Não-Funcional</option>
+											<option <?php if($req['tipo'] == 'Interface') { echo ' selected="selected"';} ?> >Interface</option>
 										</select>
 
 										<br>
 										
 										<label name="lb_Complexidade">Complexidade</label>
-										<select name="select_Complexidade" id="select_Complexidade" value="<?php echo $req['complexidade'];?>">
-											<option>Selecione...</option>
-											<option>Baixa</option>
-											<option>Média</option>
-											<option>Alta</option>
+										<select name="select_Complexidade" id="select_Complexidade">
+											<option  >Selecione...</option>
+											<option <?php if($req['complexidade'] == 'Baixa') { echo ' selected="selected"';} ?> >Baixa</option>
+											<option <?php if($req['complexidade'] == 'Média') { echo ' selected="selected"';} ?> >Média</option>
+											<option <?php if($req['complexidade'] == 'Alta') { echo ' selected="selected"';} ?> >Alta</option>
 										</select>
 
 										<label name="lb_Status">Status</label>
 										<select name="select_Status" id="select_Status" value="<?php echo $req['status'];?>">
 											<option>Selecione...</option>
-											<option>Em Aberto</option>
-											<option>Em Progresso</option>
-											<option>Sob Aprovação</option>
-											<option>Finalizado</option>
-											<option>Cancelado</option>
+											<option <?php if($req['status'] == 'Em Aberto') { echo ' selected="selected"';} ?> >Em Aberto</option>
+											<option <?php if($req['status'] == 'Em Progresso') { echo ' selected="selected"';} ?> >Em Progresso</option>
+											<option <?php if($req['status'] == 'Sob Aprovação') { echo ' selected="selected"';} ?> >Sob Aprovação</option>
+											<option <?php if($req['status'] == 'Finalizado') { echo ' selected="selected"';} ?> >Finalizado</option>
+											<option <?php if($req['status'] == 'Cancelado') { echo ' selected="selected"';} ?> >Cancelado</option>
 										</select>
 
 										<label name="lb_Prioridade">Prioridade</label>
 										<select name="select_Prioridade" id="select_Prioridade" value="<?php echo $req['prioridade'];?>">
 											<option>Selecione...</option>
-											<option>Alta</option>
-											<option>Média</option>
-											<option>Baixa</option>
+											<option <?php if($req['prioridade'] == 'Baixa') { echo ' selected="selected"';} ?> >Baixa</option>
+											<option <?php if($req['prioridade'] == 'Média') { echo ' selected="selected"';} ?> >Média</option>
+											<option <?php if($req['prioridade'] == 'Alta') { echo ' selected="selected"';} ?> >Alta</option>
 										</select>
+
+									<div id = "btn">								
+									<center><input class="btn_monitora" type="submit" value="Salvar">
+									<a href="consultar_requisito.php"><input class="btn_monitora" type="button" value="Voltar"></a>								
+						   </div><!--/btn-->
+
 
 					 	</form>									
 					</div><!--/form-->				
