@@ -6,7 +6,12 @@
 	}
 
 	$conteudo	= '';
-	if(isset($_POST['select_Ator'])){
+	$ator = '';
+	$secao = '';
+	$motivo = '';
+	$acao = '';
+
+	if(isset($_POST['gerar'])){
 		$ator = $_POST['select_Ator'];
 		$acao = $_POST['text_Acao'];
 		$secao = $_POST['select_Secao'];
@@ -16,10 +21,13 @@
 
 	}
 
+?>
+		<article id = "content_cad">
+
+<?php
 	if(isset($_POST['text_Relator'])) {
 		$relator = $_POST['text_Relator'];
 		$responsavel = $_POST['text_Responsavel'];
-		// $epico = $_POST['select_Epico'];
 		$sprint = $_POST['text_Sprint'];
 		$tipo = $_POST['select_Tipo'];
 		$complexidade = $_POST['select_Complexidade'];
@@ -29,20 +37,27 @@
 	    
 
 	    //var_dump($_POST);
-	    $sql = "insert into requisitos(relator, responsavel, sprint, complexidade, status, prioridade, tipo, conteudo, idepico) values('$relator', '$responsavel', '$sprint', '$complexidade', '$status', '$prioridade', '$tipo', '$conteudo', $epico)";
+	    $sql = "insert into requisitos(relator, responsavel, sprint, complexidade, status, prioridade, tipo, conteudo) values('$relator', '$responsavel', '$sprint', '$complexidade', '$status', '$prioridade', '$tipo', '$conteudo')";
 	    $rs = mysqli_query($con, $sql);
 		if($rs){
-			echo "<center><h3>Requisito cadastrada com sucesso!!</h3></center>";
+			echo "
+			<div class='alert alert-success'>
+  				<center><strong>Requisito cadastrado com sucesso!</strong></center>
+			</div>	
+			";
 		}
 		else{
-			echo "<center><h3>Erro de inclusão: </h3></center> ".mysqli_error($con);
+			echo "
+			<div class='alert alert-danger'>
+  				<center><strong>Erro de inclusão:</strong></center>
+			</div>
+			 ".mysqli_error($con);
 		}
 		unset($_SESSION['conteudo']);
 	}
 
 ?>	
-			<article id = "content_cad">
-				<!-- definir cabeçalho do artigo -->
+
 					<h2> Cadastro de Requisitos</h2>				
 								
 
@@ -57,7 +72,7 @@
 							<div class="form-group col-md-3"> 
 								<label labelfor="select_Ator">(Selecione o ator)</label>
 								<br>
-								<select id="select_Ator" name="select_Ator" class="form-control">
+								<select id="select_Ator" name="select_Ator" class="form-control select" required>
 
 									<option value="">Selecione...</option>									
 									<?php if($con): ?>
@@ -66,7 +81,7 @@
 											$rs = mysqli_query($con, $sql);
 										?>
 										<?php while($linhaAtor = mysqli_fetch_array($rs)): ?>
-											<option><?php echo $linhaAtor['nome']; ?></option>
+											<option <?php if($linhaAtor['nome'] == $ator) { echo ' selected="selected"';} ?>><?php echo $linhaAtor['nome']; ?></option>
 										<?php endwhile; ?>
 									<?php endif; ?>
 
@@ -78,7 +93,7 @@
 							<div class="form-group col-md-5">
 								<label labelfor="text_Acao">(escreva a ação)</label>
 								<br>
-								<input type="text" id="text_Acao" name="text_Acao" class = "form-control">	</input>
+								<input type="text" id="text_Acao" name="text_Acao" class = "form-control text" <?php echo "value='".$acao."'"; ?> required>	</input>
 							</div>
 						</div>
 
@@ -88,7 +103,7 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label labelfor="select_Secao">(selecione a seção do site)</label>
-								<select id="select_secao" name="select_Secao" class="form-control">
+								<select id="select_secao" name="select_Secao" class="form-control select" required>
 									<option value="">Selecione...</option>
 									<?php if($con): ?>
 										<?php
@@ -96,7 +111,7 @@
 											$rs = mysqli_query($con, $sql);
 										?>
 										<?php while($linhaSecao = mysqli_fetch_array($rs)): ?>
-											<option><?php echo $linhaSecao['nome']; ?></option>
+											<option <?php if($linhaSecao['nome'] == $secao) { echo ' selected="selected"';} ?>><?php echo $linhaSecao['nome']; ?></option>
 										<?php endwhile; ?>
 
 									<?php endif; ?>
@@ -108,58 +123,50 @@
 							</div>
 							<div class="form-group col-md-5">
 								<label labelfor="text_Motivo">(descreva o motivo)</label>
-								<input type="text" id="text_Motivo" name="text_Motivo" class = "form-control">	</input>
+								<input type="text" id="text_Motivo" name="text_Motivo" class="form-control text" required <?php echo "value='".$motivo."'"; ?>></input>
 							</div>
 						</div>
 
-						<input type="submit" name="submeter" class="form-control col-md-4" value="Gerar Requisito">
+							<div class="form-group col-md-4 offset-md-4">
+								<input type="submit" name="gerar" class="form-control btn btn-primary" value="Gerar Requisito">							
+							</div>
 						</form>
 
 					</div>
-
-					<hr>
-					<hr>
-					<hr>
 					
-					<div id="requisitoGerado"><?php echo  $conteudo;?></div>
-					<button id="bt_Copiar" name="bt_Copiar" class="form-control" onClick="copiarTexto()">Copiar Texto</button>
-					
-					<script type="text/javascript">
-					  function copiarTexto() {
-					    var textoCopiado = document.getElementById("requisitoGerado");
-					    textoCopiado.select();
-					    document.execCommand("Copy");
-					    alert("Texto Copiado: " + textoCopiado.value);
-					  }
-					</script>
+					<?php if($conteudo !== '') { 
+						echo '
+						<hr>
+						<h4>Requisito:</h4>';
+					} ?>
 
-				
+					<div id="requisitoGerado" class="col-12 text-center"><strong><?php echo  $conteudo;?></strong></div>
+											
 					<hr>
-					<hr>
-					
-					<h2> Detalhes Técnicos </h2>
 
+					<h4> Detalhes Técnicos </h4>
+					<br>
 					<form id="form_SalvarReq" name="form_SalvarReq" method="post">
 
 						<div class="form-row">
-							<div class="form-group col-md-4">	
+						<div class="form-group col-md-4">	
 							<label name="lb_Relator">Relator</label>
-							<input type="text" name="text_Relator" class="form-control">
+							<input type="text" name="text_Relator" class="form-control text" required>
 						</div>
 						
 						<div class="form-group col-md-4">
 							<label name="lb_Responsavel">Responsável</label>
-							<input type="text" name="text_Responsavel" class="form-control">
+							<input type="text" name="text_Responsavel" class="form-control text" required>
 						</div>
 
 						<div class="form-group col-md-4">
 							<label name="lb_Sprint">Sprint</label>
-							<input type="text" name="text_Sprint" class="form-control">
+							<input type="text" name="text_Sprint" class="form-control text" required>
 						</div>
 
 						<div class="form-group col-md-2">
 							<label name="lb_Tipo">Tipo</label>
-							<select name="select_Tipo" id="select_Tipo" class="form-control">
+							<select name="select_Tipo" id="select_Tipo" class="form-control select" required>
 								<option value="">Selecione...</option>
 								<option>Funcional</option>
 								<option>Não-Funcional</option>
@@ -169,7 +176,7 @@
 						
 						<div class="form-group col-md-2">
 							<label name="lb_Complexidade">Complexidade</label>
-							<select name="select_Complexidade" id="select_Complexidade" class="form-control">
+							<select name="select_Complexidade" id="select_Complexidade" class="form-control select" required>
 								<option value="">Selecione...</option>
 								<option>Baixa</option>
 								<option>Média</option>
@@ -179,7 +186,7 @@
 						
 						<div class="form-group col-md-4">		
 							<label name="lb_Status">Status</label>
-							<select name="select_Status" id="select_Status" class="form-control">
+							<select name="select_Status" id="select_Status" class="form-control select" required>
 								<option value="">Selecione...</option>
 								<option>Em Aberto</option>
 								<option>Em Progresso</option>
@@ -191,7 +198,7 @@
 
 						<div class="form-group col-md-2">
 							<label name="lb_Prioridade">Prioridade</label>
-							<select name="select_Prioridade" id="select_Prioridade" class="form-control">
+							<select name="select_Prioridade" id="select_Prioridade" class="form-control select" required>
 								<option value="">Selecione...</option>
 								<option>Alta</option>
 								<option>Média</option>
@@ -199,13 +206,13 @@
 							</select>
 						</div>
 
-						<div class="form-group col-md-3">
-								<input class="form-control" type="submit" name="bt_Salvar" value="Finalizar Cadastro" >
-						</div>
+						<div class="form-group col-md-3 offset-md-3">
+								<input class="form-control btn btn-primary" type="reset" value="Limpar" required>	
+						</div>	
 
 						<div class="form-group col-md-3">
-								<input class="form-control" type="reset" value="Limpar">	
-						</div>	
+								<input class="form-control  btn btn-primary" type="submit" name="bt_Salvar" value="Finalizar Cadastro" required>
+						</div>
 					</form>
 					<hr>
 

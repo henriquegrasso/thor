@@ -7,6 +7,44 @@
 ?>
 <div id = "content">
   <?php		
+	if((isset($_GET['msg'])) && ($_GET['msg']=='del_success')) {
+	    echo '
+	    <div class="alert alert-success alert-dismissible fade show" role="alert">
+		  <center><strong>Requisito deletado com sucesso!</strong></center>
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>';
+
+	  } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='del_error')) {
+		    echo '
+		    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <center><strong>Houve um problema ao deletar o requisito!</strong></center>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
+		} elseif((isset($_GET['msg'])) && ($_GET['msg']=='upd_success')) {
+	    echo '
+	    <div class="alert alert-success alert-dismissible fade show" role="alert">
+		  <center><strong>Requisito atualizado com sucesso!</strong></center>
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>';
+
+	  } elseif ((isset($_GET['msg'])) && ($_GET['msg']=='upd_error')) {
+		    echo '
+		    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <center><strong>Houve um problema ao atualizar o requisito!</strong></center>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
+		}
+
+
+
 		if($con){
 			$sql = "select * from requisitos";
 			$rs = mysqli_query($con, $sql);
@@ -51,9 +89,9 @@
 									<td> ".$valor["sprint"]."</td>
 									<td> ".$valor["complexidade"]."</td>
 									<td> ".$valor["responsavel"]."</td>								
-									<td><a href='altera_req.php?seq=". $valor["idrequisitos"].
+									<td><a href='altera_req.php?id=". $valor["idrequisitos"].
 										"'><img src='figura/edit.png' alt='edit' height='20'></a></td>
-									<td><a href='delete_req.php?seq=". $valor["idrequisitos"].
+									<td><a href='delete_req.php?id=". $valor["idrequisitos"].
 										"'><img  src='figura/del.png' alt='del' height='20'></a></td>
 							</tr>";					
 					}

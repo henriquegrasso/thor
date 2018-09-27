@@ -3,22 +3,61 @@
 ?>				
 			<article id = "content_index">
 				<header>
-					<h2>Login</h2>
 				</header>
-				<!-- definir artigo -->
-			  <div id = "login">				
-				  <?php
-				   if(isset($_GET['msg'])){ echo "===>>>> ".$_GET['msg']." <<<===== <br><br>"; }
-				  ?>
-				<form name="login" action="logar.php" method='POST'>			
-					Usuário:  <input type="text" name="user" size=40 maxlenght=80 class = "log_form"> <br><br>
-					Senha:    <input type="password" name="senha" size=40 maxlenght=80 class = "log_form1"><br><br><br>
-					<input type="submit" name = "logar" value="Entrar" class="btn_monitora_login">							
-				</form>
-											
-			  </div><!--/login-->
-			  <img src = "figura/check.jpg" />
-			  <img src = "figura/olho2.jpeg" />			 
+				<?php
+	              if((isset($_GET['msg'])) && ($_GET['msg']=='success')) {
+	                echo '
+	                <div class="alert alert-success">
+	                  <center><strong>Cadastro efetuado com sucesso!</strong></center>
+	                </div>';
+	              }
+          		?>  
+				    <div class="row">
+				        <div class="col-md-12">
+				            <div class="row">
+				                <div class="col-md-6 mx-auto">
+
+				                    <!-- form card login -->
+				                    <div class="card rounded-0">
+				                        <div class="card-header">
+				                            <h3 class="mb-0">Login</h3>
+				                        </div>
+				                        <div class="card-body">
+				                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" name="login" method="POST" action="logar.php">
+				                                <div class="form-group">
+				                                    <label for="uname1">Username</label>
+				                                    <input type="text" class="form-control form-control-lg rounded-0" name="user" id="uname1" required="">
+				                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+				                                </div>
+				                                <div class="form-group">
+				                                    <label>Password</label>
+				                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password" name="senha">
+				                                    <div class="invalid-feedback">Enter your password too!</div>
+				                                </div>
+				                                <div>
+				                                    <label class="custom-control custom-checkbox">
+				                                      <input type="checkbox" class="custom-control-input">
+				                                      <span class="custom-control-indicator"></span>
+				                                    </label>
+				                                </div>
+				                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+				                            </form>
+				                        </div>
+				                        <!--/card-block-->
+				                    </div>
+				                    <!-- /form card login -->
+
+				                </div>
+
+
+				            </div>
+				            <!--/row-->
+
+				        </div>
+				        <!--/col-->
+				    </div>
+				    <!--/row-->
+
 			</article><!--/content-->				
 <?php
 	include "template/rodape.php";

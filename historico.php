@@ -14,20 +14,22 @@
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
 				<h2> Requisitos Alterados </h2><center>
-				<table  align = "center">
-					<tr align = "center">
-						<th>ID</th>
-						<th class = "nm">Requisito Novo</th>
+				<table  align = "center" class="table table-hover">
+					<thead class='thead-dark'>
+						<tr align = "center">
+							<th>ID</th>
+							<th class = "nm">Requisito Novo</th>
 							<th class = "nm">Requisito Antigo</th>					
-						<th>Usuário</th>
-						<th>Data</th>							
-					</tr>
+							<th>Usuário</th>
+							<th>Data</th>							
+						</tr>
+					</thead>
 				<?php
 					while ($valor = mysqli_fetch_array($rs)){ // nome entre[] igual ao do BD
 						echo "<tr align = 'center'>
 								<td> ".$valor["id_req"]."</td>  
-								<td class = 'nm'> ".$valor["texto_req_old"]."</td>
 								<td class = 'nm'> ".$valor["texto_req_new"]."</td>
+								<td class = 'nm'> ".$valor["texto_req_old"]."</td>
 								<td> ".$valor["nome"]."</td>
 								<td> ".$valor["dt_alteracao"]."</td>								
 							</tr>";					

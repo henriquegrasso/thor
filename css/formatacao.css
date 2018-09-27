@@ -3,14 +3,16 @@
 	margin: 0px;
 	
 }
+
 body{
 	/*background-image: url('back.jpg');*/
-	background-color: #104E8B;
+	/*background-color: #104E8B; azul original*/
+	background-color: #1a1a1a;
 	/*background-repeat: no-repeat;
 	background-size: 1500px 1200px;*/
 }
 #wrapper{	
-	width: 980px;
+	width: 970px;
 	margin: auto;
 	position: relative;
 	/*background: url('back.jpg');*/
@@ -26,7 +28,7 @@ body{
 }
 #content{
 	background:#FFFFFF;
-	height: 380px;
+	/*height: 380px;*/
 	width: 970px;
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -34,7 +36,7 @@ body{
 	padding-left: 5px;
 	padding-right: 5px;
 	float: right;
-	overflow:auto;	/*barra de rolagem*/
+	/*overflow:auto;*/	/*barra de rolagem*/
 	
 }
 #content_cad{
@@ -75,7 +77,7 @@ body{
 }
 #content_index{
 	background:#FFFFFF;
-	height: 320px;
+	height: 500px;
 	width: 970px;	
 	margin-top: 2px;
 	margin-bottom: 2px;
@@ -96,11 +98,12 @@ body{
 }
 
 #footer{
-	background: #32a9c3;
+	/*background: #32a9c3;*/
 	color: #d3eced;
 	width: 100%;	 
 	height: 65px;
-	clear: both;	
+	clear: both;
+	background: linear-gradient(to bottom, #003366 0%, #2D97BB 100%);	
 }
 .format_footer{
 	 text-align: center;
@@ -224,6 +227,11 @@ textarea{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.text_area{ 
+	width: 500px; height: 100px; resize: none;
+}
+
 .input_n{
 	margin-bottom: 25px;
 	width: 53%;
@@ -345,10 +353,15 @@ table, td, th, tr{
 	text-align: left;	
 }
 
+.table td,
+.table th {
+	vertical-align: middle;
+	    text-align-last: center;
+}
+
 
 .table_ator, .table_secao, table, td, th, tr{
-	width: 30%;
-	display: inline-grid;
+	/*width: 30%;*/
 }
 
 .color_table{
@@ -432,3 +445,22 @@ table, td, th, tr{
 }
 
 
+.form-control .btn .btn-primary{
+	border-radius: 1.0rem;
+}
+
+.text{
+	border: 1px solid darkblue;
+}
+
+.select{
+	border: 1px solid darkblue;
+}
+
+.bg-light {
+    background-color: #003362;
+}
+
+.card{
+	background-color: lightblue;
+}

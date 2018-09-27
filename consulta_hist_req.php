@@ -15,14 +15,16 @@
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
 				<h2> Requisitos Alterados </h2><center>
-				<table  align = "center">
-					<tr align = "center">
-						<th>ID</th>
-						<th class = "nm">Requisito Antigo</th>
+				<table  align = "center" class="table table-hover">
+					<thead class='thead-dark'>
+						<tr align = "center">
+							<th>ID</th>
+							<th class = "nm">Requisito Antigo</th>
 							<th class = "nm">Requisito Novo</th>					
-						<th>Usuário</th>
-						<th>Data</th>							
-					</tr>
+							<th>Usuário</th>
+							<th>Data</th>							
+						</tr>
+					</thead>
 				<?php
 					while ($valor = mysqli_fetch_array($rs)){ // nome entre[] igual ao do BD
 						echo "<tr align = 'center'>

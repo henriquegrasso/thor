@@ -1,14 +1,13 @@
 <?php
 	
-	include "template/topo.php";
-	
+	include "conexao.php";
+
+	session_start();
 	if(!isset($_SESSION['id'])){	
 		header('Location: login.php?msg=0');
 	}
-?>
-<div id = "content_index">
-<?php
-	$seq_req = $_POST['seq_req'];
+
+	$seq_req = $_SESSION['id_req'];
 	$conteudo = $_POST['text_Conteudo'];	
 	$relator = $_POST['text_Relator'];
 	$responsavel = $_POST['text_Responsavel'];
@@ -32,25 +31,18 @@
 					ultima_alteracao = now()
 				WHERE idrequisitos = '$seq_req';";		
 		$rs = mysqli_query($con, $sql);
+
+
+		$sql2 = "insert into log_requisito(texto_req_old, texto_req_new, id_req, id_user, dt_alteracao) values('".$_SESSION['texto_req_old']."', '$conteudo', '".$_SESSION['id_req']."', '".$_SESSION['id']."', now())";
+		$rs2 = mysqli_query($con, $sql2);
+		unset($_SESSION['texto_req_old']);
+		unset($_SESSION['id_req']);
 		if($rs){
-			echo "<center><h3>Cadastrado atualizado com sucesso!!</h3></center>";
-		}
-		else{
-			echo "<center><h3> Erro de alteração: </h3></center>".mysqli_error($con);
-		}
+		 header('Location: consultar_requisito.php?msg=upd_success');
+        }
+        else {
+            header('Location: consultar_requisito.php?msg=upd_error');
+  	  	}
 	}
-	else{
-		echo "<center><h3> Erro de conexão: </h3></center>".mysqli_error($con);
-	}
-	?>	
-
-	   <div id = "pg_anteriores">
-			<a href= "cadastrar_requisito.php"><img src='figura/plus.png' alt='Cadastrar novo requisito ' class = "img_btn"></a>
-			<a href= "consultar_requisito.php"><img src='figura/fin.png' alt='Retornar a Consulta' class = "img_btn"></a>
-		</div><!--/pg_anteriores-->
-</div><!--/content-->
 	
-<?php
-
-	include "template/rodape.php";	
 ?>

@@ -9,93 +9,65 @@
   <?php		
 		$flag = 0;
 		if($con){
-			$sql = "select * from requisito"; 
-				if($_POST['cmbEquipe'] != -1 ){
+			$sql = "select * from requisitos"; 
+
+				if($_POST['select_Tipo'] != -1 ){
 					if($flag == 0){
 						$flag = 1;
 						$sql .= " WHERE ";
 					}else{
 						$sql .= " and ";
 					}
-					$sql .= " usuario_id_funcionario = ".$_POST['cmbEquipe'] . " ";
-					
-				} 
-				if($_POST['cmbCliente'] != -1 ){
-					if($flag == 0){
-						$flag = 1;
-						$sql .= " WHERE ";
-					}else{
-						$sql .= " and ";
-					}
-					$sql .= " usuario_id_cliente = ".$_POST['cmbCliente'] . " ";
-					
-				} 
-				
-				if($_POST['cmbOrigem'] != -1 ){
-					if($flag == 0){
-						$flag = 1;
-						$sql .= " WHERE ";
-					}else{
-						$sql .= " and ";
-					}
-					$sql .= " origem_id = ".$_POST['cmbOrigem'] . " ";
-					
-				} 
-				if($_POST['cmbCategoria'] != -1 ){
-					if($flag == 0){
-						$flag = 1;
-						$sql .= " WHERE ";
-					}else{
-						$sql .= " and ";
-					}
-					$sql .= " categoria = '".$_POST['cmbCategoria'] . "' ";
+					$sql .= " tipo = '".$_POST['select_Tipo'] . "' ";
 					
 				}
-				if($_POST['tipo'] != -1 ){
+				if($_POST['select_Status'] != -1 ){
 					if($flag == 0){
 						$flag = 1;
 						$sql .= " WHERE ";
 					}else{
 						$sql .= " and ";
 					}
-					$sql .= " tipo = '".$_POST['tipo'] . "' ";
+					$sql .= " status = '".$_POST['select_Status'] . "' ";
 					
 				}
-				if($_POST['status'] != -1 ){
+				if($_POST['select_Complexidade'] != -1 ){
 					if($flag == 0){
 						$flag = 1;
 						$sql .= " WHERE ";
 					}else{
 						$sql .= " and ";
 					}
-					$sql .= " estado = '".$_POST['status'] . "' ";
+					$sql .= " complexidade = '".$_POST['select_Complexidade'] . "' ";
 					
 				}
-				if($_POST['pri'] != -1 ){
+				if($_POST['select_Prioridade'] != -1 ){
 					if($flag == 0){
 						$flag = 1;
 						$sql .= " WHERE ";
 					}else{
 						$sql .= " and ";
 					}
-					$sql .= " prioridade = '".$_POST['pri'] . "' ";					
+					$sql .= " prioridade = '".$_POST['select_Prioridade'] . "' ";					
 				}
 						
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
 				<h2> Requisitos Organizados por Combinação de Fatores</h2><center>
-				<table  align = "center">
-					<tr align = "left">
-						<th>ID</th>
-						<th>Requisito</th>												
-						<th>Estado</th>																							
-					</tr>
+				<table  align = "center" class="table table-hover table_ator">
+					<thead class="thead-dark">	
+						<tr align = "left">
+							<th>ID</th>
+							<th>Requisito</th>												
+							<th>Status</th>																							
+						</tr>
+					</thead>
 				<?php
 					while ($valor = mysqli_fetch_array($rs)){ // nome entre[] igual ao do BD						
 							echo "<tr align = 'center'>
-								<td> ".$valor["id"]."</td>								 
-								<td> ".$valor["texto_req"]."</td>								
-								<td> ".$valor["estado"]."</td>							
+								<td> ".$valor["idrequisitos"]."</td>								 
+								<td> ".$valor["conteudo"]."</td>								
+								<td> ".$valor["status"]."</td>							
 							</tr>";		
 															
 					}

@@ -4,28 +4,65 @@
 ?>
 	<div id = "content_cad_user">
 		<header>
-			<h2>Cadastro de Usuário</h2>				
+			<h2>Cadastro de Usuário</h2>		
+			<hr>		
 		</header>
-		<div id = "form">
 			<form id = "cad_cliente" action = "insere_usuario.php" method = "POST">
-				Tipo: <input type="radio" name="tipo" value="funcionario" > Funcionário 
-					  <input type="radio" name="tipo" value="cliente"> Cliente <br><br>
-				UserName: <input type = "text" name = "user"class = "input_username" placeholder="Nome para login"> 
-				Senha:    <input type="password" name="senha" size=40 maxlenght=80 class = "log_form1"><br><br>
-				<hr/><br><br>
-				Nome: <input type = "text" name = "nome_usuario" class = "input_n" placeholder="Primeiro e último nome"> 
-				CPF: <input type = "text" name = "cpf_usuario"class = "input_cpf"> <br>
-				Área Atuação: <input type = "text" name = "area_usuario" class = "input">
-				E-Mail: <input type = "text" name = "email_usuario" class = "input"> <br>							
-				Telefone fixo: <input type = "text" name = "tel_usuario" class = "input"> 
-				Celular: <input type = "text" name = "cel_usuario" class = "input">	
-							
-			<div id = "btn">
-				<center><input class="btn_monitora" type="submit" value="Finalizar Cadastro">
-				<input class="btn_monitora" type="reset" value="Limpar">				
-			</div><!--/btn-->
+				<br>
+				<h4>Informações de Acesso</h4>
+			  <div class="form-row">
+				<div class="form-group col-md-4">
+					<label>Username:</label>
+					<input type = "text" name = "user" class="form-control text" placeholder="Nome para login" class="form-control text" required>
+				</div>
+
+				<div class="form-group col-md-4" > 
+					 <label>Senha:</label>
+					 <input type="password" name="senha" size=40 maxlenght=80 class="form-control text" required>
+				</div>
+			  </div>
+
+				<br>
+				<hr/>
+				<br>
+
+				<h4>Informações do Usuário</h4>
+			  <div class="form-row">
+				<div class="form-group col-md-5" >
+					<label>Nome:</label> 
+					<input type = "text" name = "nome_usuario" " class="form-control text" required> 
+				</div>
+
+				<div class="form-group col-md-5" >
+					<label>E-Mail:</label> 
+					<input type = "email" name = "email_usuario" class="form-control text" required> <br>
+				</div>
+			  </div>
+
+			  <div class="form-row">
+				<div class="form-group col-md-5" >
+					<label>Área Atuação:</label> 
+					<input type = "text" name = "area_usuario" class="form-control text" required>
+				</div>
+
+				<div class="form-group col-md-5" >						
+					<label>Telefone contato:</label>
+					<input type = "text" name = "tel_usuario" class="form-control text" required> 
+				</div>						
+			  </div>
+
+			<br>
+			<div class="form-row">
+				<div class="form-group col-md-3 offset-md-3">
+					<input class="form-control btn btn-primary" type="reset" value="Limpar">		
+				</div>	
+				
+				<div class="form-group col-md-3">
+					<input type="submit" value="Finalizar Cadastro" class="form-control btn btn-primary">
+				</div>
+			</div>
+
 		</form>
-		</div><!--/form-->
 	
 	</div><!--/content_index-->
 

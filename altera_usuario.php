@@ -7,9 +7,9 @@
 ?>
 	<div id = "content">
 		<header>
-			<h2>Alteração de Dados do Usuário</h2>				
+			<h2>Alteração de Dados do Usuário</h2>	
+			<hr>			
 		</header>
-		<div id = "form">
 			<?php
 				if($con){
 					$sql = "select * from usuario WHERE id=".$_GET['seq'];
@@ -17,27 +17,51 @@
 					if($rs){
 						if($valor = mysqli_fetch_array($rs)){?>
 							<form id = "alt_cliente" action = "update_usuario.php" method = "POST">
-								ID: <input type="text" name="seq_user" size=5 
-						             value="<?php echo $valor['id'];?>" class = " id" readonly> <br>
-								Nome: <input type = "text" name = "nome_user" class = "input_n"
-									value="<?php echo $valor['nome'];?>"> 
-								CPF: <input type = "text" name = "cpf_user"class = "input_cpf"
-									value="<?php echo $valor['cpf'];?>"> <br> 
-								Área Atuação: <input type = "text" name = "area_user" class = "input"
-									value="<?php echo $valor['area'];?>"> 
-								E-Mail: <input type = "text" name = "email_user" class = "input"
-									value="<?php echo $valor['email'];?>"> <br> 
-								Telefone fixo: <input type = "text" name = "tel_user" class = "input"
-									value="<?php echo $valor['telefone_fixo'];?>"> 
-								Celular: <input type = "text" name = "cel_user" class = "input"
-									value="<?php echo $valor['telefone_cel'];?>"> 	
-								Tipo: <input type = "text" name = "tipo_user" class = "input"
-									value="<?php echo $valor['tipo'];?>"> 	
-								
-								<div id = "btn">								
-								<center><input class="btn_monitora1" type="submit" value="Finalizar">
-								<a href="consulta_usuario.php"><input class="btn_monitora1" type="button" value="Voltar"></a>								
-						   </div><!--/btn-->					
+							<br>
+			
+							<h4>Informações do Usuário</h4>
+							<br>
+						  <div class="form-row">
+							
+							<div class="form-group col-md-1">
+								<label>ID:</label>
+								<input type = "text" name = "iduser" class="form-control text" placeholder="Nome para login" class="form-control text" <?php echo 'value="'.$valor['id'].'"' ?> readonly required>
+							</div>
+
+
+							<div class="form-group col-md-5" >
+								<label>Nome:</label> 
+								<input type = "text" name = "nome" class="form-control text" <?php echo 'value="'.$valor['nome'].'"' ?> required> 
+							</div>
+
+							<div class="form-group col-md-5" >
+								<label>E-Mail:</label> 
+								<input type = "email" name = "email" class="form-control text" <?php echo 'value="'.$valor['email'].'"' ?> required> <br>
+							</div>
+						  </div>
+
+						  <div class="form-row">
+							<div class="form-group col-md-5" >
+								<label>Área Atuação:</label> 
+								<input type = "text" name = "area" class="form-control text" <?php echo 'value="'.$valor['area'].'"' ?> required>
+							</div>
+
+							<div class="form-group col-md-5" >						
+								<label>Telefone contato:</label>
+								<input type = "text" name = "telefone" class="form-control text" <?php echo 'value="'.$valor['telefone'].'"' ?>  required> 
+							</div>						
+						  </div>
+
+						<br>
+						<div class="form-row">
+							<div class="form-group col-md-3 offset-md-3">
+								<a href="consulta_usuario.php"><input class="form-control btn btn-primary" type="reset" value="Voltar"></a>
+							</div>	
+							
+							<div class="form-group col-md-3">
+								<input type="submit" value="Atualizar Cadastro" class="form-control btn btn-primary">
+							</div>
+						</div>				
 							
 					</form>
 							<?php
@@ -55,9 +79,7 @@
 						echo "Erro de conexão: ".mysqli_error($con);
 					}
 				?>			
-		
-   </div><!--/form-->
-</div><!--/content-->
+		</div><!--/content-->
 
 <?php
 	include "template/rodape.php";
