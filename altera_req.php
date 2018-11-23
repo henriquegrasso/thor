@@ -7,7 +7,7 @@
 			<article id = "content_alt">
 				<!-- definir cabeçalho do artigo -->
 				<header>
-					<h2>Alteração de Story</h2>	
+					<h2>Alterar Requisito</h2>	
 					<hr>			
 				</header>				
 					<div id = "form">

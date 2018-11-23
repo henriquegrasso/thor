@@ -32,20 +32,26 @@
 	    $sql = "insert into story(conteudo, tipo, prioridade, status, idrequisitos) values('$conteudo', '$tipo', '$prioridade', '$status', '$idrequisitos')";
 	    $rs = mysqli_query($con, $sql);
 		if($rs){
-			echo "
-			<div class='alert alert-success'>
-  				<center><strong>Story cadastrada com sucesso!</strong></center>
-			</div>	
-			";
+			echo '
+			 <div class="alert alert-success alert-dismissible fade show" role="alert">
+			  <center><strong>Story cadastrada com sucesso!</strong></center>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>';
 		}
 		else{
-			echo "
-			<div class='alert alert-danger'>
-  				<center><strong>Erro de inclusão:</strong></center>
-			</div>
-			 ".mysqli_error($con);
+			echo '
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			  <center><strong>Houve um problema ao cadastrar a story!</strong></center>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>'
+			 .mysqli_error($con);
 		}
 		unset($_SESSION['conteudo']);
+		$conteudo = '';
 	}
 
 ?>	

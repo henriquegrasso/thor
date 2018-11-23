@@ -12,12 +12,12 @@
 				<h4>Informações de Acesso</h4>
 			  <div class="form-row">
 				<div class="form-group col-md-4">
-					<label>Username:</label>
-					<input type = "text" name = "user" class="form-control text" placeholder="Nome para login" class="form-control text" required>
+					<label>* Usuário:</label>
+					<input type = "text" name = "user" class="form-control text" class="form-control text" required>
 				</div>
 
 				<div class="form-group col-md-4" > 
-					 <label>Senha:</label>
+					 <label>* Senha:</label>
 					 <input type="password" name="senha" size=40 maxlenght=80 class="form-control text" required>
 				</div>
 			  </div>
@@ -29,25 +29,25 @@
 				<h4>Informações do Usuário</h4>
 			  <div class="form-row">
 				<div class="form-group col-md-5" >
-					<label>Nome:</label> 
+					<label>* Nome:</label> 
 					<input type = "text" name = "nome_usuario" " class="form-control text" required> 
 				</div>
 
 				<div class="form-group col-md-5" >
-					<label>E-Mail:</label> 
+					<label>* E-Mail:</label> 
 					<input type = "email" name = "email_usuario" class="form-control text" required> <br>
 				</div>
 			  </div>
 
 			  <div class="form-row">
 				<div class="form-group col-md-5" >
-					<label>Área Atuação:</label> 
+					<label>* Área de Atuação Profissional:</label> 
 					<input type = "text" name = "area_usuario" class="form-control text" required>
 				</div>
 
 				<div class="form-group col-md-5" >						
-					<label>Telefone contato:</label>
-					<input type = "text" name = "tel_usuario" class="form-control text" required> 
+					<label>* Telefone contato:</label>
+					<input type = "text" name = "tel_usuario" class="form-control text cel-sp-mask" placeholder="(00) 00000-0000" required> 
 				</div>						
 			  </div>
 

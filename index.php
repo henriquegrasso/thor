@@ -14,7 +14,7 @@
 				<img src = "figura/olho2.jpeg" />	
 				
 				<ul class = "ul_content">
-					<li>Cadastro des requisitos e Stories com uma estruturação baseada no conceito de Condição-Ação</li>
+					<li>Cadastro de requisitos e Stories com uma estruturação baseada no conceito de Condição-Ação</li>
 					<li>Rastreamento dos requisitos</li>
 					<li>Organização dos requisitos</li>
 					<li>Monitoramento do estado do requisito</li>					

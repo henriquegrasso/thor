@@ -24,43 +24,7 @@
 ?>
 		<article id = "content_cad">
 
-<?php
-	if(isset($_POST['text_Relator'])) {
-		$relator = $_POST['text_Relator'];
-		$responsavel = $_POST['text_Responsavel'];
-		$sprint = $_POST['text_Sprint'];
-		$tipo = $_POST['select_Tipo'];
-		$complexidade = $_POST['select_Complexidade'];
-		$status = $_POST['select_Status'];
-		$prioridade = $_POST['select_Prioridade'];
-		$conteudo = $_SESSION['conteudo'];
-	    
-
-	    //var_dump($_POST);
-	    $sql = "insert into requisitos(relator, responsavel, sprint, complexidade, status, prioridade, tipo, conteudo) values('$relator', '$responsavel', '$sprint', '$complexidade', '$status', '$prioridade', '$tipo', '$conteudo')";
-	    $rs = mysqli_query($con, $sql);
-		if($rs){
-			echo "
-			<div class='alert alert-success'>
-  				<center><strong>Requisito cadastrado com sucesso!</strong></center>
-			</div>	
-			";
-		}
-		else{
-			echo "
-			<div class='alert alert-danger'>
-  				<center><strong>Erro de inclusão:</strong></center>
-			</div>
-			 ".mysqli_error($con);
-		}
-		unset($_SESSION['conteudo']);
-	}
-
-?>	
-
 					<h2> Cadastro de Requisitos</h2>				
-								
-
 					<hr>
 
 					<div id="formulario">
@@ -146,7 +110,7 @@
 
 					<h4> Detalhes Técnicos </h4>
 					<br>
-					<form id="form_SalvarReq" name="form_SalvarReq" method="post">
+					<form id="form_SalvarReq" name="form_SalvarReq" method="post" action="consultar_requisito.php">
 
 						<div class="form-row">
 						<div class="form-group col-md-4">	
@@ -211,7 +175,7 @@
 						</div>	
 
 						<div class="form-group col-md-3">
-								<input class="form-control  btn btn-primary" type="submit" name="bt_Salvar" value="Finalizar Cadastro" required>
+								<input class="form-control  btn btn-primary" type="submit" name="bt_FinalizarCadastro" value="Finalizar Cadastro" required>
 						</div>
 					</form>
 					<hr>

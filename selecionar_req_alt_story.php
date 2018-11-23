@@ -52,7 +52,7 @@
 	?>	
 
 		<!-- definir cabeçalho do artigo -->
-			<h2> Cadastro de Story</h2>											
+			<h2> Consultar Story</h2>											
 			<hr>
 			<form id="form_BuscarReq" name="form_SalvarReq" method="post" action="selecionar_story.php">
 				<div class="form-group">

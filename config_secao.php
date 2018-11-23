@@ -22,7 +22,7 @@
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
-			</div>;
+			</div>
 			';
 		}
 		else{
@@ -32,7 +32,7 @@
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
-			</div>;
+			</div>
 			'.mysqli_error($con);
 		}
 	}
@@ -57,7 +57,7 @@
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
-						</div>;
+						</div>
 						';						
 					}
 					else{
@@ -67,7 +67,7 @@
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
-						</div>;
+						</div>
 						'.mysqli_error($con);
 					}
 				}
@@ -87,7 +87,7 @@
 				<form action="config_secao.php" method="post">	
 						<div class="form-group">
 							<h4>Seção do site</h4>
-							<input type="text" name="nome_Secao" id="text_Secao" class="form-control text">
+							<input type="text" name="nome_Secao" id="text_Secao" class="form-control text" required>
 							<br />
 							<input type="submit" name="enviarSecao" id="bt_AdicionarSecao" value="Adicionar" class="form-control btn btn-primary">
 						</div>

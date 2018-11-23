@@ -22,7 +22,7 @@
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
-			</div>;	
+			</div>
 			';
 		}
 		else{
@@ -32,7 +32,7 @@
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			    <span aria-hidden="true">&times;</span>
 			  </button>
-			</div>;
+			</div>
 			 '.mysqli_error($con);
 		}
 	}
@@ -56,7 +56,7 @@
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
-						</div>;
+						</div>
 						';						
 					}
 					else{
@@ -66,7 +66,7 @@
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						    <span aria-hidden="true">&times;</span>
 						  </button>
-						</div>;	
+						</div>
 						 '.mysqli_error($con);
 					}
 				}
@@ -87,8 +87,8 @@
 				<form action="config_ator.php" method="post">	
 						<div class="form-group">
 							<h4>Ator do Sistema</h4>
-							<input type="text" name="nome_Ator" id="text_Ator" class="form-control text">
-							<br />
+							<input type="text" name="nome_Ator" id="text_Ator" class="form-control text" required>
+							<br>
 							<input type="submit" name="enviarAtor" id="bt_AdicionarAtor" value="Adicionar" class="form-control btn btn-primary">
 						</div>
 				</form>			

@@ -18,7 +18,7 @@
 					<li>Dar sugestões de melhorias</li>
 					<li>Necessitar de suporte</li>														
 				</ul>
-				<br><p class = "texto">  O contato deve ser pelo email: milenerigolin@gmail.com </p>
+				<br><p class = "texto">  O contato deve ser pelo email: henriquegrasso96@gmail.com </p>
 			 </article>		 
 			</article><!--/content-->		
 			

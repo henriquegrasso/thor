@@ -25,16 +25,6 @@
 							</select>	
 						</div>
 						
-						<div class="form-group col-md-2">
-							<label name="lb_Complexidade">Complexidade</label>
-							<select name="select_Complexidade" id="select_Complexidade" class="form-control select">
-								<option value=-1>Todos</option>
-								<option>Baixa</option>
-								<option>Média</option>
-								<option>Alta</option>
-							</select>
-						</div>
-						
 						<div class="form-group col-md-4">		
 							<label name="lb_Status">Status</label>
 							<select name="select_Status" id="select_Status" class="form-control select">
@@ -56,6 +46,17 @@
 								<option>Baixa</option>
 							</select>
 						</div>
+						
+						<div class="form-group col-md-2">
+							<label name="lb_Complexidade">Complexidade</label>
+							<select name="select_Complexidade" id="select_Complexidade" class="form-control select">
+								<option value=-1>Todos</option>
+								<option>Baixa</option>
+								<option>Média</option>
+								<option>Alta</option>
+							</select>
+						</div>
+						
 					  </div>
 					  <br>
 					  <div class="form-row">

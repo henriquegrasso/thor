@@ -30,24 +30,24 @@
 
 
 							<div class="form-group col-md-5" >
-								<label>Nome:</label> 
+								<label>* Nome:</label> 
 								<input type = "text" name = "nome" class="form-control text" <?php echo 'value="'.$valor['nome'].'"' ?> required> 
 							</div>
 
 							<div class="form-group col-md-5" >
-								<label>E-Mail:</label> 
+								<label>* E-Mail:</label> 
 								<input type = "email" name = "email" class="form-control text" <?php echo 'value="'.$valor['email'].'"' ?> required> <br>
 							</div>
 						  </div>
 
 						  <div class="form-row">
 							<div class="form-group col-md-5" >
-								<label>Área Atuação:</label> 
+								<label>* Área de Atuação Profissional:</label> 
 								<input type = "text" name = "area" class="form-control text" <?php echo 'value="'.$valor['area'].'"' ?> required>
 							</div>
 
 							<div class="form-group col-md-5" >						
-								<label>Telefone contato:</label>
+								<label>* Telefone contato:</label>
 								<input type = "text" name = "telefone" class="form-control text" <?php echo 'value="'.$valor['telefone'].'"' ?>  required> 
 							</div>						
 						  </div>

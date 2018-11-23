@@ -6,9 +6,8 @@
 <html>
 <head>
 	<meta charset = "UTF-8"/>
-	<title>DoMaR</title>
+	<title>PaDoRe</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="shortcut icon" href="figura/domar.png" type="image/x-icon"/>	
 	<link rel = "stylesheet" type = "text/css" href = "css/formatacao.css"/>		
 	<link rel="stylesheet" type="text/css" href="css/styles.css" />
 	<!-- Bootstrap core CSS -->
@@ -23,7 +22,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
     
-    <script type="text/javascript" src="js/src/tests.js"></script>
+    <script type="text/javascript" src="js/sorttable.js"></script>
     
     <!-- Initializations -->
     <script type="text/javascript">
@@ -42,9 +41,9 @@
 				<center><img class = "fig_texto" src = "figura/aa.png"/></center>				
 			</header><!--/header-->
 			<header>
-				<nav class="navbar navbar-light bg-light">
-				  <a class="navbar-brand" href="#">PaDoRe - Padronização e Documentação de Requisitos</a>
-				</nav>
+					<nav class="navbar navbar-light bg-light">
+						<a href="#"><img src="https://fontmeme.com/permalink/181001/5326bdd992baf6c7136c1ef47ba4e8db.png" alt="fontes-de-letras-cursivas" border="0"></a>
+					</nav>
 			</header>
 			<div id='cssmenu'>
 				<?php
@@ -52,7 +51,7 @@
 				if(!isset($_SESSION['nome']) && (!isset($_SESSION['senha']))){	
 						echo "
 						<ul>
-							<li><a href='login.php'><span>Login</span></a></li>
+							<li><a href='login.php'><span>Entrar</span></a></li>
 							<li><a href='cadastro_usuario.php'><span>Cadastre-se</span></a></li>
 						</ul>			
 				   ";
@@ -62,42 +61,34 @@
 					
 				echo"<ul>
 				   <li class='has-sub'><a href='index.php'><span>Início</span></a>
-				   <ul>
-						 <li><a href='orientacao.php'><span>Orientações</span></a></li>
-						 <li><a href='contato.php'><span>Contato</span></a></li>
-						 <li><a href='#'><span>Sobre</span></a></li>						 
-					  </ul>				   
+				   		<ul>
+					 		<li><a href='contato.php'><span>Contato</span></a></li>
+					 		<li><a href='orientacao.php'><span>Orientações</span></a></li>
+							 <li><a href='consulta_usuario.php'><span>Usuário</span></a></li>
+						</ul>				   
 				   </li>
 				   <li class='has-sub'><a href='#'><span>Cadastrar <br> Dados</span></a>
-					  <ul>
-						 <li><a href='cadastro_req.php'><span>Requisito</span></a></li>
-						 <li><a href='cadastro_story.php'><span>Story</span></a></li>
-					  </ul>
+					    <ul>
+							<li><a href='config_ator.php'><span>Ator</span></a></li>
+							<li><a href='config_secao.php'><span>Seção do site</span></a></li>
+					    </ul>
 				   </li>				   
-				   <li class='has-sub'><a href='#'><span>Alterar <br> Dados</span></a>
+				   <li class='has-sub'><a href='#'><span>Requisitos</span></a>
 						<ul>
-						 <li><a href='consulta_usuario.php'><span>Usuário</span></a></li>						 
-						 <li><a href='consultar_requisito.php'><span>Requisito</span></a></li>
-						 <li><a href='selecionar_req_alt_story.php'><span>Story</span></a></li>
-					  	 <li><a href='config_ator.php'><span>Ator</span></a></li>
-						 <li><a href='config_secao.php'><span>Seção do site</span></a></li>
-					  </ul>				   
-				   </li>
-				   <li class= 'has-sub'><a href='#'><span>Consultar <br> Requisitos</span></a>				   
-						<ul>
-								<li class='has-sub'><a href='#'><span>Por Complexidade</span></a>
-									<ul>
-											<li><a href='con_com_alta.php'><span>Alta</span></a></li>
-											<li><a href='con_com_media.php'><span>Média</span></a></li>
-											<li><a href='con_com_baixa.php'><span>Baixa</span></a></li>
-										</ul>
-									</li>
-								
-								<li class='has-sub'><a href='#'><span>Por Tipo Requisito</span></a>
+						<li><a href='cadastro_req.php'><span>Cadastrar Requisito</span></a></li>
+						 <li><a href='consultar_requisito.php'><span>Todos os Requisitos</span></a></li>
+					  		<li class='has-sub'><a href='#'><span>Por Complexidade</span></a>
+								<ul>
+									<li><a href='con_com_baixa.php'><span>Baixa</span></a></li>
+									<li><a href='con_com_media.php'><span>Média</span></a></li>
+									<li><a href='con_com_alta.php'><span>Alta</span></a></li>
+								</ul>
+							</li>								
+								<li class='has-sub'><a href='#'><span>Por Tipo</span></a>
 									<ul>
 										<li><a href='con_tipo_funcional.php'><span>Funcional</span></a></li>
+										<li><a href='con_tipo_interface.php'><span>Interface</span></a></
 										<li><a href='con_tipo_nfuncional.php'><span>Não Funcional</span></a></li>
-										<li><a href='con_tipo_interface.php'><span>Interface</span></a></li>
 									</ul>
 								</li>
 								<li class='has-sub'><a href='#'><span>Por Status</span></a>
@@ -112,12 +103,19 @@
 						 							 
 						  <li class='has-sub'><a href='#'><span>Por Prioridade</span></a>
 									<ul>
-										<li><a href='con_pri_alta.php'><span>Alta</span></a></li>
-										<li><a href='con_pri_media.php'><span>Média</span></a></li>
 										<li><a href='con_pri_baixa.php'><span>Baixa</span></a></li>
+										<li><a href='con_pri_media.php'><span>Média</span></a></li>
+										<li><a href='con_pri_alta.php'><span>Alta</span></a></li>
 									</ul>
 							</li>						
-							<li><a href='consulta_avancada.php'><span>Combinar Fatores</span></a></li>	
+							<li><a href='consulta_avancada.php'><span>Consulta Avançada</span></a></li>
+					  </ul>				   
+
+				   </li>
+				   <li class= 'has-sub'><a href='#'><span>Story</span></a>				   
+						<ul>
+						<li><a href='cadastro_story.php'><span>Cadastrar Story</span></a></li>
+			 			<li><a href='selecionar_req_alt_story.php'><span>Consultar Stories</span></a></li>
 					  </ul>					  	
 					  <li class='has-sub'><a href='historico.php'><span>Histórico <br> Modificações</span></a>	
 							<ul>

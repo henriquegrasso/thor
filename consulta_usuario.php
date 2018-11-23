@@ -49,6 +49,7 @@
 			$rs = mysqli_query($con, $sql);
 			if($rs){?>
 				<h2> Clientes Cadastrados </h2><center>
+				<hr>
 				<table  align = "center" class="table">
 					<thead class="thead-dark">
 					  <tr align = "center">

@@ -52,17 +52,29 @@
 						</tr>";			
 					}	
 					mysqli_free_result($rs);
-					echo "</table></center>";
+					echo "</table></center>
+						<br>
+						<div class='form-group col-md-4 offset-md-4'>
+							<a href='selecionar_req_alt_story.php'><input class='form-control btn btn-primary' value='Voltar'></a>
+						</div>
+						<br><br>	
+					";
+
 				}
 			} else{
-				echo "<center><h4>Não há stories cadastradas para esse requisito!</h4></center>";
+				echo "<center><h4>Não há stories cadastradas para esse requisito!</h4></center>
+					  <br>
+					   <div class='form-row'>	
+						  	<div class='form-group col-md-3 offset-md-3'>
+								<a href='selecionar_req_alt_story.php'><input class='form-control btn btn-primary' value='Voltar'></a>
+							</div>
+
+							<div class='form-group col-md-3'>
+								<a href='cadastro_story.php'><input class='form-control btn btn-primary' value='Cadastrar Story'></a>
+							</div>
+					  </div>
+				";
 			}
-			echo "
-			<br>
-			<div class='col-md-4 offset-md-4'>
-			<center><a href='selecionar_req_alt_story.php'><input class='form-control btn btn-primary' value='Voltar'></a></center>
-			</div>
-			<br><br>";
 		}
 	}		
 
